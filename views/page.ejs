@@ -1,0 +1,41 @@
+<!doctype html>
+<html>
+<head>
+    <title>21 Savage Fan Site</title>
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="container">
+
+    <div class="page-header text-center">
+        <h1>Page</h1>
+        <a href="/profile">Profile</a>
+        <a href="/logout" class="btn btn-default btn-sm">Logout</a>
+    </div>
+
+    <div class="row">
+
+       
+        <div class="col-sm-6">
+          <h3>Posts</h3>
+          <ul class="messages">
+          <% for(var i=0; i<posts.length; i++) {%>
+            <li class="message">
+              <a href="/post/<%= posts[i]._id %>">
+                <h4><%= posts[i].caption %></h4>
+                <img src="<%= posts[i].img %>" alt="">
+                <a href="/page/<%= posts[i].postedBy %>"></a>
+              </a>  
+            </li>
+          <% } %>
+          </ul>
+
+
+</div>
+
+<script src="main.js"></script>
+
+</body>
+</html>
