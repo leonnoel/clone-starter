@@ -1,7 +1,7 @@
 <!doctype html>
 <html>
 <head>
-    <title>21 Savage Fan Site</title>
+    <title>Mimicstagram</title>
     <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css">
     <link rel="stylesheet" href="style.css">
@@ -25,13 +25,25 @@
             <li class="message">
               <a href="/post/<%= posts[i]._id %>">
                 <h4><%= posts[i].caption %></h4>
-                <img src="<%= posts[i].img %>" alt="">
+
+                <img src="../<%= posts[i].img %>" alt="">
                 <a href="/page/<%= posts[i].postedBy %>"></a>
               </a>  
             </li>
           <% } %>
           </ul>
+        
+          <h2>make a comment</h2>
+          <% if (user.local.email) { %>
+            <form action="/makePost" enctype="multipart/form-data" method="POST">
+              <input type="text" name="caption" placeholder="caption">
+              <input type="file" name="file-to-upload">
+              <button type="submit">Submit</button>
+            </form>
+          </div>
+          <% } %>
 
+          
 
 </div>
 
