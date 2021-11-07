@@ -3,16 +3,16 @@ var trash = document.getElementsByClassName("fa-trash");
 
 Array.from(thumbUp).forEach(function(element) {
       element.addEventListener('click', function(){
-        const name = this.parentNode.parentNode.childNodes[1].innerText
-        const msg = this.parentNode.parentNode.childNodes[3].innerText
-        const thumbUp = parseFloat(this.parentNode.parentNode.childNodes[5].innerText)
-        fetch('messages', {
+        const id = this.parentNode.childNodes[1].value
+        const thumbUp =  Number(this.parentNode.children[3].innerText)
+        console.log(id, thumbUp)
+        fetch('thumbUp', {
           method: 'put',
           headers: {'Content-Type': 'application/json'},
           body: JSON.stringify({
-            'name': name,
-            'msg': msg,
-            'thumbUp':thumbUp
+            'thumbUp':thumbUp,
+            'id': id
+
           })
         })
         .then(response => {

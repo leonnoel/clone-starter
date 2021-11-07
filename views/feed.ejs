@@ -1,9 +1,10 @@
 <!doctype html>
 <html>
 <head>
-    <title>21 Savage Fan Site</title>
+    <title>Mimicstagram</title>
     <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -23,11 +24,16 @@
           <ul class="messages">
           <% for(var i=0; i<posts.length; i++) {%>
             <li class="message">
+              <input type="hidden" value="<%= posts[i]._id %>">
               <a href="/post/<%= posts[i]._id %>">
                 <h4><%= posts[i].caption %></h4>
                 <img src="<%= posts[i].img %>" alt="">
+               
+   
                 <a href="/page/<%= posts[i].postedBy %>"><%= posts[i].postedBy %></a>
               </a>  
+              <span><%= posts[i].thumbUp %></span>
+              <i class="far fa-thumbs-up"></i> 
             </li>
           <% } %>
           </ul>

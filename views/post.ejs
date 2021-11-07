@@ -1,7 +1,7 @@
 <!doctype html>
 <html>
 <head>
-    <title>21 Savage Fan Site</title>
+    <title>Mimicstagram</title>
     <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css">
     <link rel="stylesheet" href="style.css">
@@ -21,14 +21,33 @@
         <div class="col-sm-6">
           <h3>Posts</h3>
           <ul class="messages">
-          <% for(var i=0; i<posts.length; i++) {%>
+         
             <li class="message">
-              <h4><%= posts[i].caption %></h4>
-              <img src="../<%= posts[i].img %>" alt="">
+              <h4><%= posts.caption %></h4>
+              <img src="/<%= posts.img %>" alt="">
             </li>
-          <% } %>
           </ul>
 
+
+          <% for (let i = 0; i < comments.length; i++) {%>
+
+           <li class="message">
+              <h4><%= comments[i].comment %></h4>
+              <p> <%= comments[i].postedBy %> </p>
+            </li>
+          </ul>
+
+          <% } %>
+
+          <h2>comment</h2>
+          <% if (user.local.email) { %>
+            <form action="/makeComment/<%= posts._id %>" method="POST">
+              <input type="text" name="comment" placeholder="comment">
+              <button type="submit">Submit</button>
+            </form>
+          </div>
+          <% } %>
+  
 
 </div>
 
